@@ -113,7 +113,7 @@ class Executor:
         """Return parameters for DELIVERY"""
         w_id = self.makeWarehouseId()
         o_carrier_id = rand.number(constants.MIN_CARRIER_ID, constants.MAX_CARRIER_ID)
-        ol_delivery_d = datetime.now()
+        ol_delivery_d = str(datetime.now())
         return makeParameterDict(locals(), "w_id", "o_carrier_id", "ol_delivery_d")
     ## DEF
 
@@ -126,7 +126,7 @@ class Executor:
         d_id = self.makeDistrictId()
         c_id = self.makeCustomerId()
         ol_cnt = rand.number(constants.MIN_OL_CNT, constants.MAX_OL_CNT)
-        o_entry_d = datetime.now()
+        o_entry_d = str(datetime.now())
 
         ## 1% of transactions roll back
         rollback = False # FIXME rand.number(1, 100) == 1
@@ -192,7 +192,7 @@ class Executor:
         c_id = None
         c_last = None
         h_amount = rand.fixedPoint(2, constants.MIN_PAYMENT, constants.MAX_PAYMENT)
-        h_date = datetime.now()
+        h_date = str(datetime.now())
 
         ## 85%: paying through own warehouse (or there is only 1 warehouse)
         if self.scaleParameters.warehouses == 1 or x <= 85:

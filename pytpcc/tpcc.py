@@ -227,7 +227,7 @@ if __name__ == '__main__':
         defaultConfig = driver.makeDefaultConfig()
         config = dict(map(lambda x: (x, defaultConfig[x][1]), defaultConfig.keys()))
     config['reset'] = args['reset']
-    config['load'] = False
+    config['load'] = True
     config['execute'] = False
     if config['reset']: logging.info("Reseting database")
     driver.loadConfig(config)
